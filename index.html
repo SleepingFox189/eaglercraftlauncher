@@ -1,29 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Launching Eaglercraft</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launching...</title>
+    <script src="launcher.js"></script>
 </head>
-<body>
-    <script>
-        (function() {
-            let win = window.open();
-            if (!win) {
-                document.body.innerText = "Popup blocked. Please allow popups and reload.";
-                return;
-            }
-            win.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head><title>Eaglercraft</title></head>
-                <body style="margin:0;height:100%;overflow:hidden;">
-                    <iframe src="http://147.185.221.211:30625/" style="border:none;width:100vw;height:100vh;"></iframe>
-                </body>
-                </html>
-            `);
-            win.document.close();
-        })();
-    </script>
+<body style="background-color:black;color:white;display:flex;align-items:center;justify-content:center;height:100vh;">
+    <p>Launching your server...</p>
 </body>
 </html>
