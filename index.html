@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Launching Eaglercraft...</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">Launching Eaglercraft...</div>
+
+    <script>
+        (async () => {
+            try {
+                const response = await fetch("http://147.185.221.211:30625/");
+                const html = await response.text();
+                const newTab = window.open("about:blank", "_blank");
+
+                if (!newTab) {
+                    document.getElementById("status").innerText =
+                        "Popup blocked. Please allow popups and reload this page.";
+                    return;
+                }
+
+                newTab.document.open();
+                newTab.document.write(html);
+                newTab.document.close();
+                document.getElementById("status").innerText = "Game launched!";
+            } catch (e) {
+                document.getElementById("status").innerText =
+                    "Failed to load game: " + e.message;
+            }
+        })();
+    </script>
+</body>
+</html>
